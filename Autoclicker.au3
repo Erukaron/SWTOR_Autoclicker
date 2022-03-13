@@ -2,6 +2,92 @@
 #include <FileConstants.au3>
 #include <MsgBoxConstants.au3>
 #include <Misc.au3>
+#include <ButtonConstants.au3>
+#include <EditConstants.au3>
+#include <GUIConstantsEx.au3>
+#include <StaticConstants.au3>
+#include <WindowsConstants.au3>
+
+#Region ### START Koda GUI section ### Form=d:\dropbox\programmierung\windows\gefaehrtenlevler#142\swtor_autoclicker\haupt.kxf
+$Haupt = GUICreate("SWTOR Autoklicker", 665, 396, 819, 510)
+$Menue_Datei = GUICtrlCreateMenu("&Datei")
+$btnSpeichern = GUICtrlCreateMenuItem("Speichern...", $Menue_Datei)
+$btnLaden = GUICtrlCreateMenuItem("Laden...", $Menue_Datei)
+$Positionen = GUICtrlCreateGroup("Positionskonfiguration", 8, 128, 417, 241)
+$PosGefaehrten = GUICtrlCreateGroup("Gefährten", 16, 144, 161, 73)
+$btnErfassenGefaehrte1 = GUICtrlCreateButton("1 Erfassen", 24, 160, 75, 25)
+$PosGefaherte1 = GUICtrlCreateInput("", 104, 162, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$btnErfassenGefaehrte2 = GUICtrlCreateButton("2 Erfassen", 24, 184, 75, 25)
+$PosGefaherte2 = GUICtrlCreateInput("", 104, 186, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$PosJobs = GUICtrlCreateGroup("Jobs", 16, 216, 161, 73)
+$btnErfassenJob1 = GUICtrlCreateButton("1 Erfassen", 24, 232, 75, 25)
+$PosJob1 = GUICtrlCreateInput("", 104, 234, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$btnErfassenJob2 = GUICtrlCreateButton("2 Erfassen", 24, 256, 75, 25)
+$PosJob2 = GUICtrlCreateInput("", 104, 258, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$PosMissionen = GUICtrlCreateGroup("Missionen", 16, 288, 161, 73)
+$btnErfassenMission1 = GUICtrlCreateButton("1 Erfassen", 24, 304, 75, 25)
+$PosMission1 = GUICtrlCreateInput("", 104, 306, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$btnErfassenMission2 = GUICtrlCreateButton("2 Erfassen", 24, 328, 75, 25)
+$PosMission2 = GUICtrlCreateInput("", 104, 330, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Sonstiges = GUICtrlCreateGroup("Sonstiges", 184, 144, 233, 97)
+$btnErfassenMissionsannahme = GUICtrlCreateButton("Missionsannahme erfassen", 192, 160, 147, 25)
+$PosMissionsannahme = GUICtrlCreateInput("", 344, 162, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$PosAbschlussAktivieren = GUICtrlCreateInput("", 344, 186, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$btnErfassenAbschlussAktivieren = GUICtrlCreateButton("Abschluss aktivieren erfassen", 192, 184, 147, 25)
+$btnErfassenAbschlussBestaetigen = GUICtrlCreateButton("Abschluss bestätigen erfassen", 192, 208, 147, 25)
+$PosAbschlussBestaetigen = GUICtrlCreateInput("", 344, 210, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Auswahlen = GUICtrlCreateGroup("Auswahlkonfiguration", 8, 0, 417, 121)
+$Missionen = GUICtrlCreateGroup("Missionswahrscheinlichkeiten", 256, 16, 161, 97)
+$Label4 = GUICtrlCreateLabel("Mission 1", 264, 40, 48, 17)
+$Mission_1 = GUICtrlCreateInput("0.333", 320, 36, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Label5 = GUICtrlCreateLabel("Mission 2", 264, 64, 48, 17)
+$Label6 = GUICtrlCreateLabel("Mission 3", 264, 88, 48, 17)
+$Mission_2 = GUICtrlCreateInput("0.333", 320, 60, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Mission_3 = GUICtrlCreateInput("0.333", 320, 84, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Jobs = GUICtrlCreateGroup("Job Wahrscheinlichkeiten", 112, 16, 137, 97)
+$Label1 = GUICtrlCreateLabel("Job 1", 120, 40, 30, 17)
+$Job_1 = GUICtrlCreateInput("0.333", 152, 36, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Label2 = GUICtrlCreateLabel("Job 2", 120, 64, 30, 17)
+$Label3 = GUICtrlCreateLabel("Job 3", 120, 88, 30, 17)
+$Job_2 = GUICtrlCreateInput("0.333", 152, 60, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Job_3 = GUICtrlCreateInput("0.333", 152, 84, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Gefaehrten = GUICtrlCreateGroup("Gefährten", 16, 16, 89, 97)
+$Gefaehrte_1 = GUICtrlCreateCheckbox("Gefährte 1", 24, 40, 73, 17)
+$Gefaehrte_2 = GUICtrlCreateCheckbox("Gefährte 2", 24, 64, 73, 17)
+$Gefaehrte_3 = GUICtrlCreateCheckbox("Gefährte 3", 24, 88, 73, 17)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Kontrollen = GUICtrlCreateGroup("Kontrollkonfiguration", 432, 0, 225, 369)
+$AnticheatUmgehung = GUICtrlCreateGroup("Anticheat Umgehung", 440, 16, 209, 105)
+$radionBewegungRandomisieren = GUICtrlCreateRadio("Bewegung randomisieren", 448, 32, 137, 17)
+GUICtrlSetState(-1, $GUI_CHECKED)
+$radioWartezeit = GUICtrlCreateRadio("Wartezeit (ms)", 448, 48, 145, 17)
+$Label7 = GUICtrlCreateLabel("Min", 448, 72, 21, 17)
+$Label8 = GUICtrlCreateLabel("Max", 448, 96, 24, 17)
+$RandomisierungMin = GUICtrlCreateInput("10", 480, 68, 161, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$RandomisierungMax = GUICtrlCreateInput("50", 480, 92, 161, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Mausgeschwindigkeit = GUICtrlCreateInput("10", 552, 124, 97, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Label9 = GUICtrlCreateLabel("Mausgeschwindigkeit", 440, 128, 106, 17)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+GUISetState(@SW_SHOW)
+#EndRegion ### END Koda GUI section ###
 
 ; ^ CTRL
 ; + SHIFT
@@ -27,6 +113,29 @@ Global $Eintraege[1] = [0] ; Jeder Eintrag besitzt: 0: Farbe für Click 1: X-Koor
 Global $Aktiv = False
 
 While True
+	$nMsg = GUIGetMsg()
+	Switch $nMsg
+		Case $GUI_EVENT_CLOSE
+			Exit
+
+		Case $btnSpeichern
+			Speichern()
+		Case $btnLaden
+			Laden()
+
+		Case $btnErfassenGefaehrte1
+		Case $btnErfassenGefaehrte2
+		Case $btnErfassenJob1
+		Case $btnErfassenJob2
+		Case $btnErfassenMission1
+		Case $btnErfassenMission2
+		Case $btnErfassenMissionsannahme
+		Case $btnErfassenAbschlussAktivieren
+		Case $btnErfassenAbschlussBestaetigen
+	EndSwitch
+WEnd
+
+Func KlickerAusfuehren()
 	If $Aktiv Then
 		AnStd("Einträge iterieren")
 
@@ -61,7 +170,7 @@ While True
 			EndIf
 		Next
 	EndIf
-WEnd
+EndFunc
 
 Func MausbewegungRandomisieren()
 	For $i = 0 To Random($MIN_WARTEZEIT, $MAX_WARTEZEIT, 1)
@@ -141,8 +250,12 @@ Func IsMausClick()
 EndFunc
 
 Func Start()
-	$Aktiv = True
-	AnNutzer("Gefährtenlevler", "Aktiviert")
+	If Not $Aktiv Then
+		$Aktiv = True
+		AnNutzer("Gefährtenlevler", "Aktiviert")
+
+		KlickerAusfuehren()
+	EndIf
 EndFunc
 
 Func Stop()
