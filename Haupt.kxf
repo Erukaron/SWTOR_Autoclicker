@@ -255,7 +255,7 @@
 						<property name="Left" vt="Int16">176</property>
 						<property name="Top" vt="Int8">16</property>
 						<property name="Width" vt="Int16">233</property>
-						<property name="Height" vt="Int8">97</property>
+						<property name="Height" vt="Int8">121</property>
 						<property name="CtrlStyle" vt="Int32">1342308359</property>
 						<property name="CtrlExStyle" vt="Int8">0</property>
 						<property name="Caption" vt="String">Sonstiges</property>
@@ -353,6 +353,36 @@
 							</properties>
 							<components/>
 						</object>
+						<object type="TAButton" name="btnErfassenMisserfolg">
+							<properties>
+								<property name="Left" vt="Int8">8</property>
+								<property name="Top" vt="Int8">88</property>
+								<property name="Width" vt="Int16">147</property>
+								<property name="Height" vt="Int8">25</property>
+								<property name="Caption" vt="String">Misserfolg erfassen</property>
+								<property name="TabOrder" vt="Int8">6</property>
+								<property name="OnClick" vt="String">btnErfassenMissionsannahmeClick</property>
+								<property name="Color" vt="Ident">clBtnFace</property>
+								<property name="CtrlStyle" vt="Int32">1342373888</property>
+								<property name="CtrlExStyle" vt="Int8">0</property>
+								<property name="Resizing" vt="Set">DockWidth, DockHeight</property>
+							</properties>
+							<components/>
+						</object>
+						<object type="TAInput" name="PosMisserfolg">
+							<properties>
+								<property name="Left" vt="Int16">160</property>
+								<property name="Top" vt="Int8">90</property>
+								<property name="Width" vt="Int8">65</property>
+								<property name="Height" vt="Int8">21</property>
+								<property name="Enabled" vt="False">False</property>
+								<property name="TabOrder" vt="Int8">7</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
+								<property name="CtrlExStyle" vt="Int16">512</property>
+								<property name="Resizing" vt="Set">DockHeight</property>
+							</properties>
+							<components/>
+						</object>
 					</components>
 				</object>
 			</components>
@@ -406,7 +436,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">1</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -450,7 +480,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">4</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -464,7 +494,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">5</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -508,7 +538,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">1</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -552,7 +582,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">4</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -566,7 +596,7 @@
 								<property name="Height" vt="Int8">21</property>
 								<property name="TabOrder" vt="Int8">5</property>
 								<property name="Text" vt="String">0.333</property>
-								<property name="CtrlStyle" vt="Int32">1342382208</property>
+								<property name="CtrlStyle" vt="Int32">1342374016</property>
 								<property name="CtrlExStyle" vt="Int16">512</property>
 								<property name="Resizing" vt="Set">DockHeight</property>
 							</properties>
@@ -638,7 +668,7 @@
 				<property name="Left" vt="Int16">432</property>
 				<property name="Top" vt="Int8">0</property>
 				<property name="Width" vt="Int16">225</property>
-				<property name="Height" vt="Int16">345</property>
+				<property name="Height" vt="Int16">153</property>
 				<property name="CtrlStyle" vt="Int32">1342308359</property>
 				<property name="CtrlExStyle" vt="Int8">0</property>
 				<property name="Caption" vt="String">Kontrollkonfiguration</property>
@@ -779,6 +809,25 @@
 					<components/>
 				</object>
 			</components>
+		</object>
+		<object type="TAEdit" name="Erklaerung">
+			<properties>
+				<property name="Left" vt="Int16">432</property>
+				<property name="Top" vt="Int16">160</property>
+				<property name="Width" vt="Int16">225</property>
+				<property name="Height" vt="Int16">185</property>
+				<property name="Lines.Strings" vt="List">
+					<list>
+						<li vt="String">[Strg+F11]:        Start des Autoklickers</li>
+						<li vt="String">[Strg+Shift+Alt]: Stop des Autoklickers</li>
+					</list>
+				</property>
+				<property name="TabOrder" vt="Int8">3</property>
+				<property name="CtrlStyle" vt="Int32">1342378180</property>
+				<property name="CtrlExStyle" vt="Int16">512</property>
+				<property name="Resizing" vt="Set"/>
+			</properties>
+			<components/>
 		</object>
 		<object type="TMainMenu" name="MainMenu1">
 			<properties/>

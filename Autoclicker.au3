@@ -1,3 +1,7 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Outfile_type=a3x
+#AutoIt3Wrapper_UseX64=n
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #include <AutoItConstants.au3>
 #include <FileConstants.au3>
 #include <MsgBoxConstants.au3>
@@ -15,7 +19,7 @@ $Menue_Datei = GUICtrlCreateMenu("&Datei")
 $btnSpeichern = GUICtrlCreateMenuItem("Speichern...", $Menue_Datei)
 $btnLaden = GUICtrlCreateMenuItem("Laden...", $Menue_Datei)
 $Positionen = GUICtrlCreateGroup("Positionskonfiguration", 8, 128, 417, 217)
-$PosGef1 = GUICtrlCreateGroup("Gef‰hrte 1", 16, 144, 161, 73)
+$PosGef1 = GUICtrlCreateGroup("Gef√§hrte 1", 16, 144, 161, 73)
 $btnErfassenGefaehrte1Job1 = GUICtrlCreateButton("Job 1 Erfassen", 24, 160, 75, 25)
 $PosGefaehrte1Job1 = GUICtrlCreateInput("", 104, 162, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
@@ -23,7 +27,7 @@ $btnErfassenGefaehrte1Job2 = GUICtrlCreateButton("Job 2 Erfassen", 24, 184, 75, 
 $PosGefaehrte1Job2 = GUICtrlCreateInput("", 104, 186, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
-$PosGef2 = GUICtrlCreateGroup("Gef‰hrte 2", 16, 216, 161, 49)
+$PosGef2 = GUICtrlCreateGroup("Gef√§hrte 2", 16, 216, 161, 49)
 $btnErfassenGefaehrte2Job1 = GUICtrlCreateButton("Job 1 Erfassen", 24, 232, 75, 25)
 $PosGefaehrte2Job1 = GUICtrlCreateInput("", 104, 234, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
@@ -36,42 +40,45 @@ $btnErfassenMission2 = GUICtrlCreateButton("2 Erfassen", 24, 304, 75, 25)
 $PosMission2 = GUICtrlCreateInput("", 104, 306, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
-$Sonstiges = GUICtrlCreateGroup("Sonstiges", 184, 144, 233, 97)
+$Sonstiges = GUICtrlCreateGroup("Sonstiges", 184, 144, 233, 121)
 $btnErfassenMissionsannahme = GUICtrlCreateButton("Missionsannahme erfassen", 192, 160, 147, 25)
 $PosMissionsannahme = GUICtrlCreateInput("", 344, 162, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $PosAbschlussAktivieren = GUICtrlCreateInput("", 344, 186, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 $btnErfassenAbschlussAktivieren = GUICtrlCreateButton("Abschluss aktivieren erfassen", 192, 184, 147, 25)
-$btnErfassenAbschlussBestaetigen = GUICtrlCreateButton("Abschluss best‰tigen erfassen", 192, 208, 147, 25)
+$btnErfassenAbschlussBestaetigen = GUICtrlCreateButton("Abschluss best√§tigen erfassen", 192, 208, 147, 25)
 $PosAbschlussBestaetigen = GUICtrlCreateInput("", 344, 210, 65, 21)
+GUICtrlSetState(-1, $GUI_DISABLE)
+$btnErfassenMisserfolg = GUICtrlCreateButton("Misserfolg erfassen", 192, 232, 147, 25)
+$PosMisserfolg = GUICtrlCreateInput("", 344, 234, 65, 21)
 GUICtrlSetState(-1, $GUI_DISABLE)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 $Auswahlen = GUICtrlCreateGroup("Auswahlkonfiguration", 8, 0, 417, 121)
 $Missionen = GUICtrlCreateGroup("Missionswahrscheinlichkeiten", 256, 16, 161, 97)
 $Label4 = GUICtrlCreateLabel("Mission 1", 264, 40, 48, 17)
-$Mission_1 = GUICtrlCreateInput("0.333", 320, 36, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Mission_1 = GUICtrlCreateInput("0.333", 320, 36, 89, 21)
 $Label5 = GUICtrlCreateLabel("Mission 2", 264, 64, 48, 17)
 $Label6 = GUICtrlCreateLabel("Mission 3", 264, 88, 48, 17)
-$Mission_2 = GUICtrlCreateInput("0.333", 320, 60, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
-$Mission_3 = GUICtrlCreateInput("0.333", 320, 84, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Mission_2 = GUICtrlCreateInput("0.333", 320, 60, 89, 21)
+$Mission_3 = GUICtrlCreateInput("0.333", 320, 84, 89, 21)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 $Jobs = GUICtrlCreateGroup("Job Wahrscheinlichkeiten", 112, 16, 137, 97)
 $Label1 = GUICtrlCreateLabel("Job 1", 120, 40, 30, 17)
-$Job_1 = GUICtrlCreateInput("0.333", 152, 36, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Job_1 = GUICtrlCreateInput("0.333", 152, 36, 89, 21)
 $Label2 = GUICtrlCreateLabel("Job 2", 120, 64, 30, 17)
 $Label3 = GUICtrlCreateLabel("Job 3", 120, 88, 30, 17)
-$Job_2 = GUICtrlCreateInput("0.333", 152, 60, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
-$Job_3 = GUICtrlCreateInput("0.333", 152, 84, 89, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
+$Job_2 = GUICtrlCreateInput("0.333", 152, 60, 89, 21)
+$Job_3 = GUICtrlCreateInput("0.333", 152, 84, 89, 21)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
-$Gefaehrten = GUICtrlCreateGroup("Gef‰hrten", 16, 16, 89, 97)
-$Gefaehrte_1 = GUICtrlCreateCheckbox("Gef‰hrte 1", 24, 40, 73, 17)
-$Gefaehrte_2 = GUICtrlCreateCheckbox("Gef‰hrte 2", 24, 64, 73, 17)
-$Gefaehrte_3 = GUICtrlCreateCheckbox("Gef‰hrte 3", 24, 88, 73, 17)
+$Gefaehrten = GUICtrlCreateGroup("Gef√§hrten", 16, 16, 89, 97)
+$Gefaehrte_1 = GUICtrlCreateCheckbox("Gef√§hrte 1", 24, 40, 73, 17)
+$Gefaehrte_2 = GUICtrlCreateCheckbox("Gef√§hrte 2", 24, 64, 73, 17)
+$Gefaehrte_3 = GUICtrlCreateCheckbox("Gef√§hrte 3", 24, 88, 73, 17)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
-$Kontrollen = GUICtrlCreateGroup("Kontrollkonfiguration", 432, 0, 225, 345)
+$Kontrollen = GUICtrlCreateGroup("Kontrollkonfiguration", 432, 0, 225, 153)
 $AnticheatUmgehung = GUICtrlCreateGroup("Anticheat Umgehung", 440, 16, 209, 105)
 $radionBewegungRandomisieren = GUICtrlCreateRadio("Bewegung randomisieren", 448, 32, 137, 17)
 GUICtrlSetState(-1, $GUI_CHECKED)
@@ -84,6 +91,8 @@ GUICtrlCreateGroup("", -99, -99, 1, 1)
 $Mausgeschwindigkeit = GUICtrlCreateInput("10", 552, 124, 97, 21, BitOR($GUI_SS_DEFAULT_INPUT,$ES_NUMBER))
 $Label9 = GUICtrlCreateLabel("Mausgeschwindigkeit", 440, 128, 106, 17)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
+$Erklaerung = GUICtrlCreateEdit("", 432, 160, 225, 185, BitOR($ES_AUTOVSCROLL,$ES_AUTOHSCROLL,$ES_WANTRETURN))
+GUICtrlSetData(-1, StringFormat("[Strg+F11]:        Start des Autoklickers\r\n[Strg+Shift+Alt]: Stop des Autoklickers"))
 GUISetState(@SW_SHOW)
 #EndRegion ### END Koda GUI section ###
 
@@ -108,7 +117,7 @@ Global Const $MAUS_RANDOMISIEREN = False
 Global Const $POS_TRENNER = ", "
 
 Global $AnzahlEintraege = 0
-Global $Eintraege[1] = [0] ; Jeder Eintrag besitzt: 0: Farbe f¸r Click 1: X-Koordinate 2: Y-Koordinate
+Global $Eintraege[1] = [0] ; Jeder Eintrag besitzt: 0: Farbe f√ºr Click 1: X-Koordinate 2: Y-Koordinate
 Global $Aktiv = False
 
 Global $DeltaGefaehrte = -1
@@ -146,6 +155,9 @@ While True
 
 		Case $btnErfassenAbschlussBestaetigen
 			PositionErfassungAufCtrl($PosAbschlussBestaetigen)
+
+		Case $btnErfassenMisserfolg
+			PositionErfassungAufCtrl($PosMisserfolg)
 
 	EndSwitch
 WEnd
@@ -311,15 +323,25 @@ Func KlickerAusfuehren()
 			MausAufPos($p[0], $p[1], GUICtrlRead($Mausgeschwindigkeit))
 			MausAktion()
 
-			; Abgabe best‰tigen
+			; Abgabe best√§tigen
 			$p = PositionVonCtrl($PosAbschlussBestaetigen)
+			MausAufPos($p[0], $p[1], GUICtrlRead($Mausgeschwindigkeit))
+			MausAktion()
+
+			; Misserfolg fokussieren
+			$p = PositionVonCtrl($PosAbschlussAktivieren)
+			MausAufPos($p[0], $p[1], GUICtrlRead($Mausgeschwindigkeit))
+			MausAktion()
+
+			; Misserfolg best√§tigen
+			$p = PositionVonCtrl($PosMisserfolg)
 			MausAufPos($p[0], $p[1], GUICtrlRead($Mausgeschwindigkeit))
 			MausAktion()
 		EndIf
 	Wend
 EndFunc
 
-; Gibt 1, 2 oder 3 zur¸ck
+; Gibt 1, 2 oder 3 zur√ºck
 Func Waehle1Aus3($p1, $p2, $p3)
 	Local $gefunden = False
 	Local $i1 = False
@@ -348,15 +370,18 @@ EndFunc
 Func MausAktion()
 	MouseClick($MOUSE_CLICK_PRIMARY)
 
+	Sleep(100)
+
 	If GUICtrlRead($radionBewegungRandomisieren) = $GUI_CHECKED Then
 		MausbewegungRandomisieren()
 	Else
-		Sleep(Random($RandomisierungMin, $RandomisierungMax, 1))
+		Sleep(Random(GUICtrlRead($RandomisierungMin), GUICtrlRead($RandomisierungMax), 1))
 	EndIf
 EndFunc
 
 Func MausbewegungRandomisieren()
-	For $i = 0 To Random($RandomisierungMin, $RandomisierungMax, 1)
+	Local $ende = Random(GUICtrlRead($RandomisierungMin), GUICtrlRead($RandomisierungMax), 1)
+	For $i = 0 To $ende
 		If $Aktiv Then
 			Local $MausPos = MouseGetPos()
 			MouseMove($MausPos[0] + Random(-$MAUS_RANDOMISIERUNGS_GRENZWERT, $MAUS_RANDOMISIERUNGS_GRENZWERT, 1), $MausPos[1] + Random(-$MAUS_RANDOMISIERUNGS_GRENZWERT, $MAUS_RANDOMISIERUNGS_GRENZWERT, 1), Random(1, $Mausgeschwindigkeit, 1))
@@ -391,6 +416,7 @@ Func Speichern()
 		If Not FileWriteLine($fHnd, GUICtrlRead($RandomisierungMin)) Then FehlerSpeichern()
 		If Not FileWriteLine($fHnd, GUICtrlRead($RandomisierungMax)) Then FehlerSpeichern()
 		If Not FileWriteLine($fHnd, GUICtrlRead($Mausgeschwindigkeit)) Then FehlerSpeichern()
+		If Not FileWriteLine($fHnd, GUICtrlRead($PosMisserfolg)) Then FehlerSpeichern()
 
 		FileClose($fHnd)
 	EndIf
@@ -430,6 +456,7 @@ Func Laden()
 			GUICtrlSetData($RandomisierungMin          , FileReadLine($fHnd))
 			GUICtrlSetData($RandomisierungMax          , FileReadLine($fHnd))
 			GUICtrlSetData($Mausgeschwindigkeit        , FileReadLine($fHnd))
+			GUICtrlSetData($PosMisserfolg              , FileReadLine($fHnd))
 		EndIf
 
 		FileClose($fHnd)
@@ -460,7 +487,7 @@ Func Erfassen()
 	WEnd
 EndFunc
 
-; Gibt die Mausposition beim Klick zur¸ck
+; Gibt die Mausposition beim Klick zur√ºck
 ; Array[0]: X
 ; Array[1]: Y
 Func PositionErfassung()
@@ -483,7 +510,7 @@ Func PositionErfassung()
 	WEnd
 EndFunc
 
-; Gibt die Position f¸r den Klick zur¸ck
+; Gibt die Position f√ºr den Klick zur√ºck
 ; Array[0]: X
 ; Array[1]: Y
 Func PositionVonCtrl($ctrl)
@@ -511,7 +538,7 @@ EndFunc
 Func Start()
 	If Not $Aktiv Then
 		$Aktiv = True
-		AnNutzer("Gef‰hrtenlevler", "Aktiviert")
+		AnNutzer("Gef√§hrtenlevler", "Aktiviert")
 
 		KlickerAusfuehren()
 	EndIf
@@ -519,7 +546,7 @@ EndFunc
 
 Func Stop()
 	$Aktiv = False
-	AnNutzer("Gef‰hrtenlevler", "Deaktiviert")
+	AnNutzer("Gef√§hrtenlevler", "Deaktiviert")
 EndFunc
 
 Func AnNutzer($ueberschrift, $msg)
