@@ -15,10 +15,13 @@ HotKeySet("^!+{F11}", "Stop")
 Global Const $INDIZES_JE_EINTRAG = 3
 Global Const $MAUS_GESCHWINDIGKEIT = 10
 Global Const $TRAYTIP_TIMEOUT = 5
-Global Const $MIN_WARTEZEIT = 200
-Global Const $MAX_WARTEZEIT = 2500
+Global Const $MIN_WARTEZEIT = 10
+Global Const $MAX_WARTEZEIT = 50
 Global Const $MAX_X = 1920
 Global Const $MAX_Y = 1080
+Global Const $MAUS_RANDOMISIERUNGS_GRENZWERT = 50
+Global Const $MAUS_RANDOMISIEREN = False
+
 Global $AnzahlEintraege = 0
 Global $Eintraege[1] = [0] ; Jeder Eintrag besitzt: 0: Farbe für Click 1: X-Koordinate 2: Y-Koordinate
 Global $Aktiv = False
@@ -49,13 +52,25 @@ While True
 ;~ 				EndIf
 
 				MouseClick($MOUSE_CLICK_PRIMARY)
-				Sleep(Random($MIN_WARTEZEIT, $MAX_WARTEZEIT, 1))
 
-				MouseMove(Random(0, $MAX_X, 1), Random(0, $MAX_Y, 1), Random(2, $MAUS_GESCHWINDIGKEIT, 1))
+				If $MAUS_RANDOMISIEREN Then
+					MausbewegungRandomisieren()
+				Else
+					Sleep(Random($MIN_WARTEZEIT * 25, $MAX_WARTEZEIT * 25, 1))
+				EndIf
 			EndIf
 		Next
 	EndIf
 WEnd
+
+Func MausbewegungRandomisieren()
+	For $i = 0 To Random($MIN_WARTEZEIT, $MAX_WARTEZEIT, 1)
+		If $Aktiv Then
+			Local $MausPos = MouseGetPos()
+			MouseMove($MausPos[0] + Random(-$MAUS_RANDOMISIERUNGS_GRENZWERT, $MAUS_RANDOMISIERUNGS_GRENZWERT, 1), $MausPos[1] + Random(-$MAUS_RANDOMISIERUNGS_GRENZWERT, $MAUS_RANDOMISIERUNGS_GRENZWERT, 1), Random(2, $MAUS_GESCHWINDIGKEIT, 1))
+		EndIf
+	Next
+EndFunc
 
 Func Speichern()
 	Local $fName = InputBox("Speichern", "Dateiname:", "default.dat")
