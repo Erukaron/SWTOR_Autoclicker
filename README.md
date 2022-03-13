@@ -1,0 +1,2 @@
+# SWTOR_Autoclicker
+ 
